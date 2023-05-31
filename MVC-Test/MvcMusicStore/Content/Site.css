@@ -5,11 +5,29 @@
 	border: none;
 }
 
-body
-{
+/* CSS for small/mobile devices */
+@media (max-width: 600px) {
+	body {
+		background-color: lightblue !important;
+	}
+}
+
+/* CSS for tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+	body {
+		background-color: lightgreen !important;
+	}
+}
+
+/* CSS for desktop screens */
+@media (min-width: 1025px) {
+	body {
+		background-color: lightgray !important;
+	}
+}
+body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
-	background-color: #FBF9EF;
 	padding: 0px 6%;
 }
 

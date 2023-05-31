@@ -27,9 +27,8 @@ namespace MvcMusicStore.Controllers
             return View(viewModel);
         }
 
-        //
+        
         // GET: /Store/AddToCart/5
-
         public ActionResult AddToCart(int id)
         {
 
@@ -41,10 +40,33 @@ namespace MvcMusicStore.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             cart.AddToCart(addedAlbum);
+            
+                // Go back to the main store page for more shopping
+                return RedirectToAction("Index");
+            
+        } 
+        /* GET: /Store/AddToCart/5
+        public ActionResult AddToCart(int id , string status="") 
+        {
 
-            // Go back to the main store page for more shopping
-            return RedirectToAction("Index");
-        }
+            // Retrieve the album from the database
+            var addedAlbum = storeDB.Albums
+                .Single(album => album.AlbumId == id);
+
+            // Add it to the shopping cart
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.AddToCart(addedAlbum);
+            
+                var results = new
+                {
+                    Message = addedAlbum + " has been added from your shopping cart.",
+                    CartTotal = cart.GetTotal()
+                };
+               return Json(results);
+            
+        } */
+        
 
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5
@@ -88,5 +110,20 @@ namespace MvcMusicStore.Controllers
 
             return PartialView("CartSummary");
         }
+
+        // GET: /Store/Details
+        public ActionResult Details(int id)
+        {
+            var album = storeDB.Albums.Find(id);
+
+            return PartialView(album);
+
+
+        }
+
+        
+
+
+
     }
 }
