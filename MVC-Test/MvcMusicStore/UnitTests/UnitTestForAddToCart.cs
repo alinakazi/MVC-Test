@@ -8,25 +8,58 @@ using System.Linq;
 
 namespace MvcMusicStore.Controllers
 {
+
+    [TestFixture]
     public class UnitTestForAddToCart
     {
         MusicStoreEntities storeDB = new MusicStoreEntities();
 
+
         [Test]
-        public void IsProductAvailable()
+        public void AddToCart_ItemDoesNotExist_ShouldCreateCartItem()
         {
-            int id = 5; //assume the id is 5
-            var addedAlbum = storeDB.Albums
-                .Single(album => album.AlbumId == id);
+            
+            var cart = new ShoppingCart(); // Create an instance of the Cart class
+            var album = new Album { AlbumId = 1 }; // Create a sample album
 
-            ShoppingCart sCart = new ShoppingCart();
-            sCart.AddToCart(addedAlbum);
-            int c = sCart.GetCount();
+            // Act
+            cart.AddToCart(album);
+
             // Assert
-            Assert.IsNotNull(addedAlbum);
+            var cartItem = storeDB.Carts.SingleOrDefault(
+                c => c.CartId == cart.ShoppingCartId && c.AlbumId == album.AlbumId);
 
-            //........... we can add her all possible cases 
-
+            Assert.NotNull(cartItem); // Assert that a cart item was created
+            Assert.AreEqual(1, cartItem.Count); // Assert that the cart item count is set to 1
         }
+
+        [Test]
+        public void AddToCart_ItemExists_ShouldIncrementCount()
+        {
+            var cart = new ShoppingCart(); // Create an instance of the Cart class
+            var album = new Album { AlbumId = 1 }; // Create a sample album
+
+            // Add an existing cart item to the storeDB
+            var existingCartItem = new Cart
+            {
+                AlbumId = album.AlbumId,
+                CartId = cart.ShoppingCartId,
+                Count = 1
+            };
+            storeDB.Carts.Add(existingCartItem);
+
+            // Act
+            cart.AddToCart(album);
+
+            // Assert
+            var cartItem = storeDB.Carts.SingleOrDefault(
+                c => c.CartId == cart.ShoppingCartId && c.AlbumId == album.AlbumId);
+
+            Assert.NotNull(cartItem); // Assert that the cart item exists
+            Assert.AreEqual(2, cartItem.Count); // Assert that the cart item count is incremented to 2
+        }
+
+
     }
-}
+    }
+

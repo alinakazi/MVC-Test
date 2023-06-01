@@ -75,13 +75,13 @@ E:\MVC-Test\MvcMusicStore\obj\Debug\MvcMusicStore.dll
 E:\MVC-Test\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
 E:\MVC-Test\MvcMusicStore\bin\nunit.framework.dll
 E:\MVC-Test\MvcMusicStore\bin\nunit.framework.xml
+C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\App_Data\MvcMusicStore.sdf
+C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\EntityFramework.dll
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\App_Data\ASPNETDB.MDF
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\App_Data\aspnetdb_log.ldf
-C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\App_Data\MvcMusicStore.sdf
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\MvcMusicStore.dll.config
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\MvcMusicStore.dll
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\MvcMusicStore.pdb
-C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\EntityFramework.dll
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\nunit.framework.dll
 C:\Users\Alina Kazi\Downloads\aaa\MVC-Test\MvcMusicStore\bin\System.Web.Helpers.dll
