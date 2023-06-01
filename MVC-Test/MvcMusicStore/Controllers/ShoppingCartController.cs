@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using MvcMusicStore.Models;
 using MvcMusicStore.ViewModels;
@@ -27,9 +28,9 @@ namespace MvcMusicStore.Controllers
             return View(viewModel);
         }
 
-        
+
         // GET: /Store/AddToCart/5
-        public ActionResult AddToCart(int id)
+        /*public ActionResult AddToCart(int id)
         {
 
             // Retrieve the album from the database
@@ -44,7 +45,27 @@ namespace MvcMusicStore.Controllers
                 // Go back to the main store page for more shopping
                 return RedirectToAction("Index");
             
-        } 
+        } */
+        //  GET:  /Store/AddToCart/5
+        public ActionResult AddToCart(int id)
+        {
+            try
+            {
+                var addedAlbum = storeDB.Albums.Single(album => album.AlbumId == id);
+                var cart = ShoppingCart.GetCart(this.HttpContext);
+                cart.AddToCart(addedAlbum);
+
+                ViewBag.SuccessMessage = cart.GetCount()+" Items added to cart!";
+                return PartialView("AddToCartIndicator");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "Error: " + ex.Message;
+                return PartialView("AddToCartIndicator");
+            }
+        }
+
+
         /* GET: /Store/AddToCart/5
         public ActionResult AddToCart(int id , string status="") 
         {
@@ -66,7 +87,7 @@ namespace MvcMusicStore.Controllers
                return Json(results);
             
         } */
-        
+
 
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5

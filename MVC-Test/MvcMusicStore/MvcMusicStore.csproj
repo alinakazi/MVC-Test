@@ -340,6 +340,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css.map" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ShoppingCart\AddToCartIndicator.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
