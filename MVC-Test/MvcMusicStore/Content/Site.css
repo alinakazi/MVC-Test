@@ -8,26 +8,50 @@
 /* CSS for small/mobile devices */
 @media (max-width: 600px) {
 	body {
+		font-size: 12px;
 		background-color: lightblue !important;
 	}
-}
+	#header h1 {
+		font-size: 14px;
+	}
+
+	ul li a {
+		font-size: 13px;
+	}
+
 
 /* CSS for tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
 	body {
+		font-size: 13px;
 		background-color: lightgreen !important;
 	}
-}
+	#header h1 {
+		font-size: 16px;
+	}
+
+	ul li a {
+		font-size: 15px;
+	}
+
 
 /* CSS for desktop screens */
 @media (min-width: 1025px) {
 	body {
 		background-color: lightgray !important;
+		font-size: 14px;
 	}
+	#header h1 {
+		font-size: 18px;
+	}
+
+	ul li a {
+		font-size: 16px;
+	}
+
 }
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
 	padding: 0px 6%;
 }
 
@@ -46,7 +70,7 @@ body {
 
 #header h1
 {
-	font-size: 18px;
+	
 	float: left;
 	background: url(/content/Images/logo.png) no-repeat;
 	padding: 45px 0px 5px 0px;
@@ -57,11 +81,6 @@ body {
 	height: 300px; 
 	width: 700px; 
 	background: url(/content/Images/home-showcase.png) no-repeat;
-}
-
-ul li a
-{
-	font-size: 16px;
 }
 
 #main
