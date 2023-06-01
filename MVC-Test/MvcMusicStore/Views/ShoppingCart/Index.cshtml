@@ -65,8 +65,11 @@
         $('#cart-status').text('Cart (' + data.CartCount + ')');
     }
 
-    function openPopup(recordToPreview) {
+    function openPopup(button) {
+        
+        var recordToPreview = button.getAttribute("data-id");
 
+        console.log(recordToPreview);
         document.getElementById("mainContainerPopup").style.display = "block";
 
         $.ajax({
@@ -119,7 +122,7 @@
     {
         <tr id="row-@item.RecordId">
             <td>
-                <button id="btnOpenPopup" class="btn btn-info" onclick="openPopup(@item.RecordId)"> @item.Album.Title </button>
+                <button id="btnOpenPopup" class="btn btn-info" data-id="@item.RecordId" onclick="openPopup(this)">@item.Album.Title </button>
                 
             </td>
             <td>
